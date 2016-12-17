@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Fall Winter 2015</title>
+</head>
+<body>
+  <p><a href= "/fw2015/new">ADD A NEW PRODUCT</a></p>
+
+  <div> 
+    <h1> All products </h1>
+    <%for product in @products%>
+    <hr>
+    <p> Name: <%= product.name() %></p>
+    <p> Price: <%= product.price() %></p>
+    <a href = "fw2015/<%=product.id%>"><img src = "<%=product.url%>" alt = "Image"/></a>
+    <%end%>
+  </div>
+</body>
+</html>

@@ -8,12 +8,12 @@ attr_reader :id
 def initialize(options)
   @id = options['id'].to_i unless options['id'].nil?
   @name = options['name']
-  @markdown = options['markdown'].to_f
+  @markdown = options['markdown']
   @product_id = options['product_id'].to_i
 end
 
 def add()
-  sql = "INSERT INTO collections (name, markdown, product_id) VALUES ('#{@name}',#{@markdown},#{@product_id}) RETURNING *;"
+  sql = "INSERT INTO collections (name, markdown, product_id) VALUES ('#{@name}','#{@markdown}',#{@product_id}) RETURNING *;"
   result = SqlRunner.run(sql)
   @id = result[0]['id'].to_i
 end
@@ -21,7 +21,7 @@ end
 def self.all()
   sql = "SELECT * FROM collections;"
   result = SqlRunner.run(sql)
-  return result.map {|element| Collcection.new(element)}
+  return result.map {|element| Collection.new(element)}
 end
 
 def update_name(new_name)
@@ -31,7 +31,7 @@ end
 
 def update_markdown(new_markdown)
   new_markdown = new_markdown.to_f
-  sql = "UPDATE collections SET markdown = #{new_markdown} WHERE id = #{@id};"
+  sql = "UPDATE collections SET markdown = '#{new_markdown}' WHERE id = #{@id};"
   return SqlRunner.run(sql)
 end
 

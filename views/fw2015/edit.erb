@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Create a product</title>
+</head>
+<body>
+  <form action = "/fw2015/<%=product.id%>" type = "post">
+      <label>
+        <p>Product name:</p>
+        <input type = "text" name = "name" value = "<%=@product.name%>" size = "30">
+      </label>
+      <label>
+        <p>Type: </p>
+        <input type = "text" name = "type" value = "<%=@product.type%>" size = "30">
+      </label>
+      <label>
+        <p>Size:
+        <select>
+        <option value = "XS"<%="selected" if @product.size == "XS"%>>XS</option>
+        <option value = "S"<%="selected" if @product.size == "S"%>>S</option>
+        <option value = "M"<%="selected" if @product.size == "M"%>>M</option>
+        <option value = "L"<%="selected" if @product.size == "L"%>>L</option>
+        <option value = "XL"<%="selected" if @product.size == "XL"%>>XL</option>
+        </select>
+        </p>
+      </label>
+      <label> Price: 
+          <input type = "number" name = "price" value = "<%=@product.price%>" size = 10>
+      </label>
+      <label> Stock: 
+          <input type = "number" name = "stock" value = "<%=@product.stock%>" size = 10>
+      </label>
+      <label> Image URL: 
+          <input type = "text" name = "url" value = "<%=@product.url%>" size = 50>
+      </label>
+      <input type = "submit" value = "CREATE">
+  </form>
+</body>
+</html>
