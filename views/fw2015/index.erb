@@ -1,19 +1,26 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <link rel="stylesheet" type="text/css" href="index.css">
   <title>Fall Winter 2015</title>
 </head>
 <body>
-  <p><a href= "/fw2015/new">ADD A NEW PRODUCT</a></p>
-
-  <div> 
+  <div class = "list"> 
     <h1> All products </h1>
     <%for product in @products%>
-    <hr>
-    <p> Name: <%= product.name() %></p>
-    <p> Price: <%= product.price() %></p>
-    <a href = "fw2015/<%=product.id%>"><img src = "<%=product.url%>" alt = "Image"/></a>
-    <%end%>
-  </div>
+    <div class = "container">
+      <p> Name: <%= product.name() %></p>
+      <p> Price: £<%= product.price() %></p>
+      <p> Stock Level: <%= product.stock_level %></p>
+    </div>
+    <div class = "image">
+      <img src ="<%=product.url()%>" alt = "Image"/>
+    </div>
+    <div class = "button">
+     <p><a href= "/fw2015/<%=product.id%>">SHOW DETAILS</a></p>
+   </div>
+   <%end%>
+ </div>
+</div>
 </body>
 </html>

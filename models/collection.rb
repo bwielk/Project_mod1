@@ -18,6 +18,14 @@ def add()
   @id = result[0]['id'].to_i
 end
 
+def self.update(id)
+  sql = "UPDATE collections SET
+        name='#{options['name']}',
+        price='#{options['price']}',
+        product_id = '#{options['product_id']}'
+        url='#{options['url']}' WHERE id='#{options['id']}';"
+  SqlRunner.run( sql )
+end
 def self.all()
   sql = "SELECT * FROM collections;"
   result = SqlRunner.run(sql)
@@ -44,6 +52,18 @@ def self.delete_all
   sql = "DELETE FROM collections;"
   SqlRunner.run(sql)
 end
+
+def show_products
+  sql = "SELECT * FROM products WHERE id = #{@product_id}"
+  result = SqlRunner.run(sql)
+  return result.map {|element| Product.new(element)}
+end
+
+# def self.markdown_on
+#   sql = "UPDATE products SET price = price*#{@markdown} WHERE id = #{@product_id}"
+#     result = SqlRunner.run(sql)
+#     return result.map {|element| Product.new(element)}
+# end
 
 
 #REFACTORING METHODS#

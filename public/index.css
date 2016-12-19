@@ -1,12 +1,22 @@
-html, body {
-  margin: 0;
-  padding: 0;
+.list {
+  border: 1px solid white;
 }
 
-body {
-  background-image: url(https://mir-s3-cdn-cf.behance.net/project_modules/disp/5ca63234338995.56ccfd2103ab4.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
-  min-width: 500px;
-  min-height: 500px;
+.list h1 {
+ font-family: arial;
+ color: white; 
+}
+
+.container1 {
+  border: 1px solid blue;
+  font-family: arial;
+  color:white;
+  float: left;
+}
+
+.list img {
+  width: 817px;
+  height: 450px;
+  border: 1px solid red; /* 1.82*/
+  float: right;
 }

@@ -1,12 +1,33 @@
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-image: url(https://mir-s3-cdn-cf.behance.net/project_modules/disp/5ca63234338995.56ccfd2103ab4.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-width: 500px;
+  min-height: 500px;
+}
+
+.nav {
+  background-color: black;
+  height: 10%;
+  width: 100%;
+}
 ul li {
   border: 1px solid white;
   list-style: none;
-  display: inline-block;
-  padding: 2%;
+  display: inline;
 }
 a {
   text-decoration: none;
   color: white;
   font-family: arial;
   padding: 2%;
+  text-align: center;
+
 }
+
+

@@ -1,23 +1,23 @@
 require_relative('../db/sql_runner')
+require_relative('collection')
 
 class Product
 
-  attr_accessor :name, :type, :stock, :price, :order_amount, :url
-  attr_reader :id, :size
+  attr_accessor :name, :type, :stock, :price, :url
+  attr_reader :id
 
   def initialize(options)
     @id = options['id'].to_i unless options['id'].nil?
     @name = options['name']
     @type = options['type']
-    @size = options['size']
     @price = options['price'].to_i
     @stock = options['stock'].to_i
-    @order_amount = options['order_amount'].to_i
+    #@order_amount = options['order_amount'].to_i
     @url = options['url']
   end
 
   def add()
-    sql = "INSERT INTO products (name, type, size, price, stock, order, url) VALUES ('#{@name}','#{@type}', '#{@size}', #{@price}, #{@stock}, #{@order_amount}, '#{@url}') RETURNING *;"
+    sql = "INSERT INTO products (name, type, price, stock, url) VALUES ('#{@name}','#{@type}', #{@price}, #{@stock}, '#{@url}') RETURNING *;"
     result = SqlRunner.run(sql)
     @id = result[0]['id'].to_i
   end
@@ -30,8 +30,25 @@ class Product
 
   def update_price(new_price)
     sql = "UPDATE products SET price = #{new_price} WHERE id = #{@id}"
+    SqlRunner.run(sql)
   end
 
+  def self.find(id)
+    sql = "SELECT * FROM products WHERE id = #{id};"
+    product = SqlRunner.run(sql)
+    result = product.map {|element| Product.new(element)}
+    return result[0]
+  end
+
+  def self.update(options)
+    sql = "UPDATE products SET
+          name='#{options['name']}',
+          type='#{options['type']}',
+          price=#{options['price']},
+          stock=#{options['stock']},
+          url='#{options['url']}' WHERE id=#{options['id']};"
+    SqlRunner.run( sql )
+  end
   def update_name(new_name)
     sql = "UPDATE products SET name = '#{new_name}' WHERE id = #{@id};"
     SqlRunner.run(sql)
@@ -52,18 +69,13 @@ class Product
     SqlRunner.run(sql)
   end
 
-  def update_order(new_amount)
-    sql = "UPDATE products SET order_amount = #{new_amount} WHERE id = #{@id};"
-    SqlRunner.run(sql)
-  end
-
   def delete()
     sql = "DELETE FROM products WHERE id = #{@id};"
     SqlRunner.run(sql)
   end
 
-  def delete_order
-    sql = "DELETE order_amount FROM products WHERE id = #{@id};"
+  def self.delete(id)
+    sql = "DELETE FROM products WHERE id = #{id};"
     SqlRunner.run(sql)
   end
 
@@ -72,21 +84,52 @@ class Product
     SqlRunner.run(sql)
   end
 
-  def place_order(amount)
-    order_am = @order_amount + amount
-    update_order(order_am)
-  end 
-
-  def receive_order
-    result = @order_amount
-    new_stock = @stock + result.to_i
-    update_stock(new_stock)
+  def stock_level()
+    if @stock <= 10 && @stock != 0
+      return "LOW"
+    elsif @stock > 10 && @stock < 20
+      return "MEDIUM"
+    elsif @stock >= 20
+      return "HIGH"
+    end
   end
 
+  # def place_order(amount)
+  #   order_am = @order_amount + amount
+  #   update_order(order_am)
+  # end 
+
+  # def receive_order
+  #   result = @order_amount
+  #   new_stock = @stock + result.to_i
+  #   update_stock(new_stock)
+  # end
+
+  # def delete_order
+  #   sql = "DELETE order_amount FROM products WHERE id = #{@id};"
+  #   SqlRunner.run(sql)
+  # end
+
+  # def update_order(new_amount)
+  #   sql = "UPDATE products SET order_amount = #{new_amount} WHERE id = #{@id};"
+  #   SqlRunner.run(sql)
+  # end
+  
   def sell(number)
-    new_stock = @stock - number
-    update_stock(new_stock)
+    if @stock >=1 
+      new_stock = @stock - number
+      update_stock(new_stock)
+    else 
+      return "ORDER MORE!"
+    end
   end
-#REFACTORING METHODS
 
+def show_collection
+  sql = "SELECT * FROM collections WHERE product_id = #{@id};"
+  result = SqlRunner.run(sql)
+  return result.map {|element| Collection.new(element)}
+end
+
+
+#REFACTORING METHODS
 end

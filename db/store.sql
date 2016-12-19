@@ -5,10 +5,8 @@ CREATE TABLE products (
 id SERIAL8 primary key,
 name VARCHAR(255) not null,
 type VARCHAR(255),
-size VARCHAR(5),
 price INT8,
 stock INT8,
-order_amount INT8,
 url VARCHAR(255)
 );
 

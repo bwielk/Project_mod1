@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Details</title>
+</head>
+<body>
+ <div class = "container">
+   <p> Name: <%=@product.name() %></p>
+   <p> Price: <%=@product.price() %></p>
+   <p> Type: <%=@product.type() %></p>
+   <p> Stock Level: <%=@product.stock_level %>(<%=@product.stock%>)</p>
+ </div>
+ <div class = "image">
+   <img src = "<%=@product.url%>" alt = "Image"/>
+ </div>
+ <div class = "button">
+   <p>
+     <form action = "/fw2015/<%=@product.id%>/delete" method = "post">
+       <input type = "submit" value = "Delete"/>
+     </form>
+   </p>
+ </div>
+ <div class = "button">
+   <p>
+     <form action = "/fw2015/<%=@product.id%>/edit" method = "get">
+       <input type = "submit" value = "Edit"/>
+     </form>
+   </p>
+ </div>
+</body>
+</html>
