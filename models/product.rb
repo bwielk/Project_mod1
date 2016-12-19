@@ -3,7 +3,7 @@ require_relative('collection')
 
 class Product
 
-  attr_accessor :name, :type, :stock, :price, :url
+  attr_accessor :name, :type, :stock, :price, :url, :collection_id
   attr_reader :id
 
   def initialize(options)
@@ -14,10 +14,11 @@ class Product
     @stock = options['stock'].to_i
     #@order_amount = options['order_amount'].to_i
     @url = options['url']
+    @collection_id = options['collection_id'].to_i
   end
 
   def add()
-    sql = "INSERT INTO products (name, type, price, stock, url) VALUES ('#{@name}','#{@type}', #{@price}, #{@stock}, '#{@url}') RETURNING *;"
+    sql = "INSERT INTO products (name, type, price, stock, url, collection_id) VALUES ('#{@name}','#{@type}', #{@price}, #{@stock}, '#{@url}', #{@collection_id}) RETURNING *;"
     result = SqlRunner.run(sql)
     @id = result[0]['id'].to_i
   end
@@ -46,7 +47,8 @@ class Product
           type='#{options['type']}',
           price=#{options['price']},
           stock=#{options['stock']},
-          url='#{options['url']}' WHERE id=#{options['id']};"
+          url='#{options['url']}',
+          collection_id=#{options['collection_id']} }' WHERE id=#{options['id']};"
     SqlRunner.run( sql )
   end
   def update_name(new_name)
@@ -125,9 +127,15 @@ class Product
   end
 
 def show_collection
-  sql = "SELECT * FROM collections WHERE product_id = #{@id};"
+  sql = "SELECT * FROM collections WHERE id = #{@collection_id};"
   result = SqlRunner.run(sql)
   return result.map {|element| Collection.new(element)}
+end
+
+def show_collection_name
+  sql = "SELECT * FROM collections WHERE id = #{@collection_id};"
+  result = SqlRunner.run(sql)
+  return result[0]['name']
 end
 
 

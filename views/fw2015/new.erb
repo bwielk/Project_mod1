@@ -34,6 +34,12 @@
       <label> Image URL: 
           <input type = "text" name = "url" size = 50>
       </label>
+      <label> Collection:
+      <select name = "collection_id">
+        <%for collection in @collections%> 
+        <option value= "<%collection.id%>"><%=collection.name%></option>
+        <%end%>
+      </label>
       <input type = "submit" value = "CREATE">
   </form>
 </body>

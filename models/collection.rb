@@ -2,18 +2,17 @@ require_relative('../db/sql_runner')
 
 class Collection
 
-attr_accessor :name, :markdown, :product_id
+attr_accessor :name, :markdown
 attr_reader :id
 
 def initialize(options)
   @id = options['id'].to_i unless options['id'].nil?
   @name = options['name']
   @markdown = options['markdown']
-  @product_id = options['product_id'].to_i
 end
 
 def add()
-  sql = "INSERT INTO collections (name, markdown, product_id) VALUES ('#{@name}','#{@markdown}',#{@product_id}) RETURNING *;"
+  sql = "INSERT INTO collections (name, markdown) VALUES ('#{@name}','#{@markdown}') RETURNING *;"
   result = SqlRunner.run(sql)
   @id = result[0]['id'].to_i
 end
@@ -21,15 +20,20 @@ end
 def self.update(id)
   sql = "UPDATE collections SET
         name='#{options['name']}',
-        price='#{options['price']}',
-        product_id = '#{options['product_id']}'
-        url='#{options['url']}' WHERE id='#{options['id']}';"
+        markdown='#{options['markdown']}';"
   SqlRunner.run( sql )
 end
+
 def self.all()
   sql = "SELECT * FROM collections;"
   result = SqlRunner.run(sql)
   return result.map {|element| Collection.new(element)}
+end
+
+def self.find(id)
+  sql = "SELECT * FROM collections WHERE id = #{id};"
+  result = SqlRunner.run(sql)
+  return Collection.new(result[0])
 end
 
 def update_name(new_name)
@@ -54,7 +58,7 @@ def self.delete_all
 end
 
 def show_products
-  sql = "SELECT * FROM products WHERE id = #{@product_id}"
+  sql = "SELECT * FROM products WHERE collection_id = #{@id}"
   result = SqlRunner.run(sql)
   return result.map {|element| Product.new(element)}
 end

@@ -7,11 +7,18 @@ require('pry')
 # INDEX
 get '/fw2015' do 
   @products = Product.all
+  @collections = Collection.all
   erb(:"/fw2015/index")
+end
+#SHOW COLLECTIONS BY SEASONS 
+get '/fw2015/:id/season' do
+  @collection = Collection.find(params[:id])
+  erb(:"/fw2015/season")
 end
 
 #NEW PRODUCT FORM
 get '/fw2015/new' do
+  @collections = Collection.all
   erb(:"/fw2015/new")
 end
 

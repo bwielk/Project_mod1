@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Season <%=@collection.name%></title>
+</head>
+<body>
+ <h1><%=@collection.name%></h1>
+  <%for product in @collection.show_products%>
+    <p> Name: <%=product.name%></p>
+    <p> Type: <%=product.type%></p>
+    <p> Price: <%=product.price%></p>
+    <p> Stock: <%=product.stock%></p>
+    <img src ="<%=product.url%>" alt = "Image"/>
+    <div class = "button">
+      <p><a href= "/fw2015/<%=product.id%>">SHOW DETAILS</a></p>
+    </div>
+<%end%>
+</body>
+</html>
