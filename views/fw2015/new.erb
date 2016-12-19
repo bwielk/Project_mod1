@@ -37,7 +37,7 @@
       <label> Collection:
       <select name = "collection_id">
         <%for collection in @collections%> 
-        <option value= "<%collection.id%>"><%=collection.name%></option>
+        <option value= <%=collection.id%>><%=collection.name%></option>
         <%end%>
       </label>
       <input type = "submit" value = "CREATE">

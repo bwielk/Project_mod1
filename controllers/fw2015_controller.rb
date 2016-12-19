@@ -11,8 +11,8 @@ get '/fw2015' do
   erb(:"/fw2015/index")
 end
 #SHOW COLLECTIONS BY SEASONS 
-get '/fw2015/:id/season' do
-  @collection = Collection.find(params[:id])
+get '/fw2015/collection_id/season' do
+  @collection = Collection.find(params[:collection_id])
   erb(:"/fw2015/season")
 end
 
@@ -30,7 +30,7 @@ post '/fw2015' do
 end
 
 #SHOW PRODUCT
-get '/fw2015/:id' do
+get '/fw2015/:id/season' do
   @product = Product.find(params[:id])
   erb(:"/fw2015/show")
 end

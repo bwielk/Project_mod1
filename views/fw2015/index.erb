@@ -2,18 +2,18 @@
 <html>
 <head>
   <link rel="stylesheet" type="text/css" href="index.css">
-  <title>Fall Winter 2015</title>
+  <title>Inventory</title>
 </head>
 <body>
-<form action = '/fw2015' method = "get">
+<form action = '/fw2015/collection_id/season' method = "get">
   <label> Choose Season:
     <select name = "collection_id">
       <%for collection in @collections%> 
-      <option value= "<%collection.id%>"><%=collection.name%></option>
+      <option value=<%=collection.id%>><%=collection.name%></option>
       <%end%> 
     </select>
     </label>
-  <a href = "/fw2015/<%=collection.id%>/season">GO</a>
+ <input type = "submit" value = "GO">
 </form>
 </body>
 </html>
