@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <link rel="stylesheet" type="text/css" href="layout.css">
+  <link rel="stylesheet" type="text/css" href="/new.css">
   <title>Create a product</title>
 </head>
 <body>
-  <form action = "/fw2015" method = "post">
+  <div class = "form">
+    <form action = "/fw2015" method = "post">
       <label>
         <p>Product name:</p>
         <input type = "text" name = "name" size = "30">
@@ -23,24 +24,29 @@
         <option value = "L">L</option>
         <option value = "XL">XL</option>
         </select>
-        </p> -->
-      </label>
-      <label> Price: 
-          <input type = "number" name = "price" size = 10>
-      </label>
-      <label> Stock: 
-          <input type = "number" name = "stock" size = 10>
-      </label>
-      <label> Image URL: 
-          <input type = "text" name = "url" size = 50>
-      </label>
-      <label> Collection:
-      <select name = "collection_id">
+      </p> -->
+    </label>
+    <label> <p>Price:  </p>
+      <input type = "number" name = "price" size = 10>
+    </label>
+    <label> <p>Stock: </p>
+      <input type = "number" name = "stock" size = 10>
+    </label>
+    <label> <p>Image URL: </p>
+      <input type = "text" name = "url" size = 50>
+    </label>
+    <label> <p>Collection: </p>
+      <p><select name = "collection_id">
         <%for collection in @collections%> 
         <option value= <%=collection.id%>><%=collection.name%></option>
         <%end%>
+        </select>
       </label>
-      <input type = "submit" value = "CREATE">
-  </form>
+      <p><input class = "button" type = "submit" value = "CREATE"></p>
+      </label>
+   
+ 
+</form>
+</div>
 </body>
 </html>

@@ -1,0 +1,38 @@
+
+.img {
+  width:720px ;
+  height:400px;
+  margin-left: 13%;
+}
+
+h1 {
+  text-align: center;
+  background-color: white;
+}
+
+.box p {
+background-color: black;
+text-align: center;
+color: white;
+padding: 0.2% 0%;
+margin-top: -0.4%;
+}
+
+.box p:hover {
+  background-color: white;
+  color: black;
+}
+
+.button p{
+padding: 1.4%;
+width: 10%;
+height: 5%;
+margin: auto;
+}
+
+.button a {
+  font-family: Francois One;
+}
+.button a:hover{
+  color:black;
+}

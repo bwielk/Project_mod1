@@ -1,0 +1,11 @@
+
+.container {
+  margin: auto;
+  text-align: center;
+  padding-top: 15%;
+}
+
+.container p {
+  color: white;
+  font-size: 210%;
+}

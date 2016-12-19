@@ -1,6 +1,21 @@
 html, body {
   margin: 0;
   padding: 0;
+  font-family: Francois One;
+}
+#container {
+  width: 960px;
+  margin: 0px auto;
+}
+#container p {
+  display: block;
+}
+
+
+@media screen and (max-width:959px) {
+  #container {
+    width: 100%;
+  }
 }
 
 body {
@@ -8,13 +23,14 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   min-width: 500px;
-  min-height: 500px;
+  min-height: 600px;
 }
 
 .nav {
   background-color: black;
   height: 10%;
   width: 100%;
+  margin-top: -2%;
 }
 ul li {
   border: 1px solid white;
@@ -25,9 +41,9 @@ a {
   text-decoration: none;
   color: white;
   font-family: arial;
-  padding: 2%;
   text-align: center;
-
 }
+
+
 
 

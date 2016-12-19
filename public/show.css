@@ -1,0 +1,37 @@
+.container {
+  float: left;
+  width: 239px;
+}
+.container p {
+margin-top: 0;
+background-color: black;
+text-align: center;
+color: white;
+}
+
+.image {
+  width:719px ;
+  height:400px;
+  float: right;
+}
+.bigbox {
+  position: relative;
+  height: 400px;
+  margin-top: 5%;
+}
+
+.button {
+  text-align: center;
+  padding: 0;
+  border: none;
+}
+
+.buttons input {
+  font-family: Francois One;
+  font-size: 100%;
+  width: 15%;
+  height: 15%;
+  color:white;
+  background-color: black;
+  border: none;
+}

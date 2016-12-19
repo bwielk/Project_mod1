@@ -44,6 +44,13 @@ post '/fw2015/:id' do
  Product.update(params)
   redirect to('/fw2015')
 end
+#SELL PRODUCT
+post '/fw2015/:id/sell/:number' do
+  @product = Product.find(params[:id])
+  @product.sell(params[:number])
+  erb(:"/fw2015/sell")
+end
+
 #DESTROY PRODUCT
 post '/fw2015/:id/delete' do
   Product.delete(params[:id])

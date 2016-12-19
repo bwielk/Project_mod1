@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <link rel="stylesheet" type="text/css" href="index.css">
+  <link rel="stylesheet" type="text/css" href="/index.css">
   <title>Inventory</title>
 </head>
 <body>
 <form action = '/fw2015/collection_id/season' method = "get">
-  <label> Choose Season:
+  <label class = "dropdown"> <p>Choose a collection:</p>
     <select name = "collection_id">
       <%for collection in @collections%> 
       <option value=<%=collection.id%>><%=collection.name%></option>
       <%end%> 
     </select>
     </label>
- <input type = "submit" value = "GO">
+    <p><input type = "submit" value = "GO"></p>
 </form>
 </body>
 </html>

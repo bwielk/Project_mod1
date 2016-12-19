@@ -2,6 +2,15 @@
   border: 1px solid white;
 }
 
+body {
+  background-image: url(https://mir-s3-cdn-cf.behance.net/project_modules/disp/d8969d34338995.56ccfd2105c9c.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-width: 500px;
+  min-height: 600px;
+}
+
+
 .list h1 {
  font-family: arial;
  color: white; 
@@ -19,4 +28,29 @@
   height: 450px;
   border: 1px solid red; /* 1.82*/
   float: right;
+}
+
+.dropdown p {
+ text-align: center;
+ font-size: 200%;
+}
+
+.dropdown select {
+  font-size: 120%;
+  font-family: Francois One;
+  width: 30%;
+  border-radius: none;
+  margin: 0% 35% 0% 35%;
+  background-color: white;
+}
+
+input {
+  width: 20%;
+  background-color: black;
+  font-family: Francois One;
+  margin: 0% 40% 0% 40%;
+  border: none;
+  padding: 1%;
+  color:white;
+  font-size: 140%;
 }

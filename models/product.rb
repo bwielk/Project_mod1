@@ -119,8 +119,8 @@ class Product
   
   def sell(number)
     if @stock >=1 
-      new_stock = @stock - number
-      update_stock(new_stock)
+      new_stock = @stock - number.to_i
+      update_stock(new_stock.to_i)
     else 
       return "ORDER MORE!"
     end

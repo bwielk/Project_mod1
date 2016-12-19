@@ -2,18 +2,19 @@
 <html>
 <head>
   <title>Details</title>
+  <link rel="stylesheet" type="text/css" href="/show.css">
 </head>
 <body>
+<div class = "bigbox">
  <div class = "container">
-   <p> Name: <%=@product.name() %></p>
-   <p> Price: <%=@product.price() %></p>
-   <p> Type: <%=@product.type() %></p>
-   <p> Stock Level: <%=@product.stock_level %>(<%=@product.stock%>)</p>
+   <p> Name: <%=@product.name%></p>
+   <p> Price: <%=@product.price%></p>
+   <p> Type: <%=@product.type%></p>
+   <p> Stock Level: <%=@product.stock_level%>(<%=@product.stock%>)</p>
    <p> Season: <%=@product.show_collection_name%>
  </div>
- <div class = "image">
-   <img src = "<%=@product.url%>" alt = "Image"/>
- </div>
+   <img class = "image" src = "<%=@product.url%>" alt = "Image"/>
+<div class = "buttons">
  <div class = "button">
    <p>
      <form action = "/fw2015/<%=@product.id%>/delete" method = "post">
@@ -27,6 +28,8 @@
        <input type = "submit" value = "Edit"/>
      </form>
    </p>
+   </div>
+  </div>
  </div>
 </body>
 </html>
