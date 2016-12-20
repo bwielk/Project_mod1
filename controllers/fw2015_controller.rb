@@ -25,8 +25,13 @@ end
 #NEW PRODUCT CREATED
 post '/fw2015' do 
   @product = Product.new(params)
-  @product.add()
+  if params.empty?
+    redirect to('/fw2015/error') 
+  else
+    @product.add()
+  end
   erb(:"/fw2015/create")
+  erb(:"/fw2015/error")
 end
 
 #SHOW PRODUCT
@@ -36,18 +41,21 @@ get '/fw2015/:id/season' do
 end
 #EDIT PRODUCT FORM
 get '/fw2015/:id/edit' do
+  @collections = Collection.all
   @product = Product.find(params[:id])
   erb(:"/fw2015/edit")
 end
+
 #UPDATED PRODUCT
 post '/fw2015/:id' do 
- Product.update(params)
+  @product = Product.update(params)
   redirect to('/fw2015')
 end
-#SELL PRODUCT
-post '/fw2015/:id/sell/:number' do
+
+# #SELL PRODUCT
+post '/fw2015/:id/sell' do
   @product = Product.find(params[:id])
-  @product.sell(params[:number])
+  @product.sell(params[:quantity])
   erb(:"/fw2015/sell")
 end
 

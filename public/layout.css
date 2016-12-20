@@ -21,29 +21,47 @@ html, body {
 body {
   background-image: url(https://mir-s3-cdn-cf.behance.net/project_modules/disp/5ca63234338995.56ccfd2103ab4.jpg);
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size:cover;
   min-width: 500px;
   min-height: 600px;
+  background-attachment: fixed;
+}
+/*.nav img {
+  width: 10px;
+  height: 10px;
+}*/
+
+.nav img {
+  float: left;
+
+}
+.nav ul li {
+
+  list-style: none;
+  display: inline-block;
+  margin: 3% 5% 0% 6%;
+  text-align: center;
+  float: right;
+}
+.nav a {
+  text-decoration: none;
+  color: white;
+  font-family: Francois One;
+  text-align: center;
+  font-size: 150%;
+}
+
+.nav a:hover {
+  color: grey;
 }
 
 .nav {
-  background-color: black;
-  height: 10%;
-  width: 100%;
-  margin-top: -2%;
+ background-color: black;
+ height: 5em;
+ margin-top: -2%;
+ border-radius: 1%;
+ display: content;
 }
-ul li {
-  border: 1px solid white;
-  list-style: none;
-  display: inline;
-}
-a {
-  text-decoration: none;
-  color: white;
-  font-family: arial;
-  text-align: center;
-}
-
 
 
 

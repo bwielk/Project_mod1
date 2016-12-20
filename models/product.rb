@@ -30,14 +30,14 @@ class Product
   end
 
   def update_price(new_price)
-    sql = "UPDATE products SET price = #{new_price} WHERE id = #{@id}"
+    sql = "UPDATE products SET price =#{new_price} WHERE id = #{@id}"
     SqlRunner.run(sql)
   end
 
   def self.find(id)
     sql = "SELECT * FROM products WHERE id = #{id};"
     product = SqlRunner.run(sql)
-    result = product.map {|element| Product.new(element)}
+    result = product.map{|element| Product.new(element)}
     return result[0]
   end
 
@@ -48,9 +48,10 @@ class Product
           price=#{options['price']},
           stock=#{options['stock']},
           url='#{options['url']}',
-          collection_id=#{options['collection_id']} }' WHERE id=#{options['id']};"
+          collection_id=#{options['collection_id']} WHERE id=#{options['id']};"
     SqlRunner.run( sql )
   end
+  
   def update_name(new_name)
     sql = "UPDATE products SET name = '#{new_name}' WHERE id = #{@id};"
     SqlRunner.run(sql)

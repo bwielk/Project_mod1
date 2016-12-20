@@ -9,6 +9,9 @@ h1 {
   text-align: center;
   background-color: white;
 }
+.box {
+  margin-top: 2%;
+}
 
 .box p {
 background-color: black;
@@ -32,6 +35,8 @@ margin: auto;
 
 .button a {
   font-family: Francois One;
+  text-decoration: none;
+  color: white;
 }
 .button a:hover{
   color:black;

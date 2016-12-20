@@ -1,4 +1,5 @@
 .container {
+  margin-top: 1%;
   float: left;
   width: 239px;
 }
@@ -17,7 +18,7 @@ color: white;
 .bigbox {
   position: relative;
   height: 400px;
-  margin-top: 5%;
+  margin-top: 10%;
 }
 
 .button {
