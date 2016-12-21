@@ -7,22 +7,19 @@ Collection.delete_all()
 
 
 fw2015 = Collection.new({
-  'name' => 'Fall Winter 2015/2016',
-  'markdown' => '0.1'
+  'name' => 'Fall Winter 2015/2016'
   })
 
 fw2015.add()
 
 ss2016 = Collection.new({
-  'name' => 'Spring Summer 2016',
-  'markdown' => '0.1'
+  'name' => 'Spring Summer 2016'
   })
 
 ss2016.add()
 
 fw2016 = Collection.new({
-  'name' => 'Fall Winter 2016/2017',
-  'markdown' => '0.1'
+  'name' => 'Fall Winter 2016/2017'
   })
 
 fw2016.add()

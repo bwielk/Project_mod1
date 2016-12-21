@@ -2,6 +2,7 @@
 <html>
 <head>
   <link rel="stylesheet" type="text/css" href="/index.css">
+  <link rel="stylesheet" type="text/css" href="/new_collection.css">
   <title>Inventory</title>
 </head>
 <body>
@@ -15,7 +16,27 @@
     </label>
     <p><input type = "submit" value = "GO"></p>
   </form>
+  <form class = "form" action = '/fw2015' method = "post">
+    <label>
+      <div>
+        <p>Create a new collection</p>
+        <p><input id = "input_bar" type = "text" name = "name">Name</input></p>
+        <p><input type = "submit" value = "CREATE"><p>
+      </div>
+    </label>
+  </form>
+ <form action = '/fw2015/id/delete' method = "post">
+     <label class = "dropdown"> <p>Delete a collection:</p>
+       <select name = "id">
+         <%for collection in @collections%> 
+         <option value=<%=collection.id%>><%=collection.name%></option>
+         <%end%> 
+       </select>
+     </label>
+     <p><input type = "submit" value = "DELETE"></p>
+   </form>
 </body>
+
 </html>
 
 

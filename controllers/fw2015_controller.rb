@@ -22,6 +22,18 @@ get '/fw2015/new' do
   erb(:"/fw2015/new")
 end
 
+#NEW COLLECTION COLLECTION CREATED
+post '/fw2015' do
+  @collection_new = Collection.new(params)
+  @collection_new.add
+  erb(:"/fw2015/create_new_col")
+end
+#DELETE A COLLECTION
+post '/fw2015/:id/delete' do
+  @collection = Collection.find(params[:id])
+  @collection.delete
+  redirect to('/fw2015')
+end
 #NEW PRODUCT CREATED
 post '/fw2015' do 
   @product = Product.new(params)

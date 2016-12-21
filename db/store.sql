@@ -4,8 +4,7 @@ DROP TABLE IF EXISTS collections;
 
 CREATE TABLE collections (
   id SERIAL8 primary key,
-  name VARCHAR(255) not null,
-  markdown VARCHAR(255)
+  name VARCHAR(255) not null
 );
 
 CREATE TABLE products (
@@ -15,5 +14,5 @@ CREATE TABLE products (
   price INT8,
   stock INT8,
   url VARCHAR(255),
-  collection_id INT8 references collections(id)
+  collection_id INT8 references collections(id) ON DELETE CASCADE
 );

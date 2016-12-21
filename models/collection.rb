@@ -2,25 +2,24 @@ require_relative('../db/sql_runner')
 
 class Collection
 
-  attr_accessor :name, :markdown
+  attr_accessor :name
   attr_reader :id
 
   def initialize(options)
     @id = options['id'].to_i unless options['id'].nil?
     @name = options['name']
-    @markdown = options['markdown']
+    #@markdown = options['markdown']
   end
 
   def add()
-    sql = "INSERT INTO collections (name, markdown) VALUES ('#{@name}','#{@markdown}') RETURNING *;"
+    sql = "INSERT INTO collections (name) VALUES ('#{@name}') RETURNING *;"
     result = SqlRunner.run(sql)
     @id = result[0]['id'].to_i
   end
 
   def self.update(id)
     sql = "UPDATE collections SET
-    name='#{options['name']}',
-    markdown='#{options['markdown']}';"
+    name='#{options['name']}';"
     SqlRunner.run( sql )
   end
 
