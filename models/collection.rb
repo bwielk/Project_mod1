@@ -51,6 +51,11 @@ class Collection
     return SqlRunner.run(sql)
   end
 
+  def self.delete(id)
+    sql = "DELETE FROM collections WHERE id = #{id};"
+    return SqlRunner.run(sql)
+  end
+
   def self.delete_all
     sql = "DELETE FROM collections;"
     SqlRunner.run(sql)

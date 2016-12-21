@@ -29,13 +29,12 @@ post '/fw2015' do
   erb(:"/fw2015/create_new_col")
 end
 #DELETE A COLLECTION
-post '/fw2015/:id/delete' do
-  @collection = Collection.find(params[:id])
-  @collection.delete
+post '/fw2015/id/delete' do
+  Collection.delete(params[:id])
   redirect to('/fw2015')
 end
 #NEW PRODUCT CREATED
-post '/fw2015' do 
+post '/fw2015/new_product' do 
   @product = Product.new(params)
   # if params.empty?
   #   redirect to('/fw2015/error') 
