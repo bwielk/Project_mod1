@@ -25,13 +25,13 @@ end
 #NEW PRODUCT CREATED
 post '/fw2015' do 
   @product = Product.new(params)
-  if params.empty?
-    redirect to('/fw2015/error') 
-  else
-    @product.add()
-  end
+  # if params.empty?
+  #   redirect to('/fw2015/error') 
+  # else
+  @product.add()
+  # end
   erb(:"/fw2015/create")
-  erb(:"/fw2015/error")
+  # erb(:"/fw2015/error")
 end
 
 #SHOW PRODUCT

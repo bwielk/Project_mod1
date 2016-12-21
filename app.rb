@@ -4,5 +4,5 @@ require_relative('controllers/fw2015_controller')
 
 
 get '/' do
-erb(:index)
+  erb(:index)
 end

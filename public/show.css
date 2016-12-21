@@ -1,13 +1,13 @@
 .container {
-  margin-top: 1%;
+  margin-top: 0;
   float: left;
   width: 239px;
 }
 .container p {
-margin-top: 0;
-background-color: black;
-text-align: center;
-color: white;
+  margin-top: 0;
+  background-color: black;
+  text-align: center;
+  color: white;
 }
 
 .image {

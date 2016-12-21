@@ -13,27 +13,27 @@
       <label><p>Type: </p>
         <input type = "text" name = "type" size = "30">
       </label>
-    <label> <p>Price:  </p>
-      <input type = "number" name = "price" size = 10>
-    </label>
-    <label> <p>Stock: </p>
-      <input type = "number" name = "stock" size = 10>
-    </label>
-    <label> <p>Image URL: </p>
-      <input type = "text" name = "url" size = 50>
-    </label>
-    <label> <p>Collection: </p>
-      <p><select name = "collection_id">
-        <%for collection in @collections%> 
-        <option value= <%=collection.id%>><%=collection.name%></option>
-        <%end%>
+      <label> <p>Price:  </p>
+        <input type = "number" name = "price" size = 10>
+      </label>
+      <label> <p>Stock: </p>
+        <input type = "number" name = "stock" size = 10>
+      </label>
+      <label> <p>Image URL: </p>
+        <input type = "text" name = "url" size = 50>
+      </label>
+      <label> <p>Collection: </p>
+        <p><select name = "collection_id">
+          <%for collection in @collections%> 
+          <option value= <%=collection.id%>><%=collection.name%></option>
+          <%end%>
         </select>
       </label>
       <p><input class = "button" type = "submit" value = "CREATE"></p>
-      </label>
-   
- 
-</form>
+    </label>
+    
+    
+  </form>
 </div>
 </body>
 </html>

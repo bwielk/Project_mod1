@@ -43,12 +43,12 @@ class Product
 
   def self.update(options)
     sql = "UPDATE products SET
-          name='#{options['name']}',
-          type='#{options['type']}',
-          price=#{options['price']},
-          stock=#{options['stock']},
-          url='#{options['url']}',
-          collection_id=#{options['collection_id']} WHERE id=#{options['id']};"
+    name='#{options['name']}',
+    type='#{options['type']}',
+    price=#{options['price']},
+    stock=#{options['stock']},
+    url='#{options['url']}',
+    collection_id=#{options['collection_id']} WHERE id=#{options['id']};"
     SqlRunner.run( sql )
   end
   
@@ -127,17 +127,17 @@ class Product
     end
   end
 
-def show_collection
-  sql = "SELECT * FROM collections WHERE id = #{@collection_id};"
-  result = SqlRunner.run(sql)
-  return result.map {|element| Collection.new(element)}
-end
+  def show_collection
+    sql = "SELECT * FROM collections WHERE id = #{@collection_id};"
+    result = SqlRunner.run(sql)
+    return result.map {|element| Collection.new(element)}
+  end
 
-def show_collection_name
-  sql = "SELECT * FROM collections WHERE id = #{@collection_id};"
-  result = SqlRunner.run(sql)
-  return result[0]['name']
-end
+  def show_collection_name
+    sql = "SELECT * FROM collections WHERE id = #{@collection_id};"
+    result = SqlRunner.run(sql)
+    return result[0]['name']
+  end
 
 
 #REFACTORING METHODS

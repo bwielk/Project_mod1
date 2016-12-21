@@ -31,8 +31,8 @@
         <%for collection in @collections%> 
         <option value= <%=collection.id%> <%= 'selected' if collection.id == @product.collection_id %>><%=collection.name%></option>
         <%end%>
-        </select>
-      </label>
+      </select>
+    </label>
     <p><input class = "button" type = "submit" value = "CREATE"></p>
   </form>
 </body>

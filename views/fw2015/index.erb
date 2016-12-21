@@ -5,16 +5,16 @@
   <title>Inventory</title>
 </head>
 <body>
-<form action = '/fw2015/collection_id/season' method = "get">
-  <label class = "dropdown"> <p>Choose a collection:</p>
-    <select name = "collection_id">
-      <%for collection in @collections%> 
-      <option value=<%=collection.id%>><%=collection.name%></option>
-      <%end%> 
-    </select>
+  <form action = '/fw2015/collection_id/season' method = "get">
+    <label class = "dropdown"> <p>Choose a collection:</p>
+      <select name = "collection_id">
+        <%for collection in @collections%> 
+        <option value=<%=collection.id%>><%=collection.name%></option>
+        <%end%> 
+      </select>
     </label>
     <p><input type = "submit" value = "GO"></p>
-</form>
+  </form>
 </body>
 </html>
 

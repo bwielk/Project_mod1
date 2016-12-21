@@ -8,23 +8,24 @@
  <h1><%=@collection.name%></h1>
  <%for product in @collection.show_products%>
  <div class = "box">
- <p> Name: <%=product.name%></p>
- <p> Price: £<%=product.price%></p>
- <p> Stock: <%=product.stock_level%>(<%=product.stock%>)</p>
- <img class = "img" src ="<%=product.url%>" alt = "Image"/>
- <div class = "button">
-  <p><a href= "/fw2015/<%=product.id%>/season">SHOW DETAILS</a></p>
+   <p> Name: <%=product.name%></p>
+   <p> Price: £<%=product.price%></p>
+   <p> Stock: <%=product.stock_level%>(<%=product.stock%>)</p>
+   <img class = "img" src ="<%=product.url%>" alt = "Image"/>
+   <div class = "button">
+    <p><a href= "/fw2015/<%=product.id%>/season">SHOW DETAILS</a></p>
+  </div>
 </div>
-</div>
-<div class = "button">
+<div class = "sell">
   <p>
-    <form class = "sell" action = "/fw2015/<%=product.id%>/sell" method = "post">
-      <p> Enter the amount </p>
-      <input type = "number" name = "quantity" value = "sell">
-      <input type = "submit" value = "SELL">
-    </form>
-  </p>
-</div> -->
-<%end%>
-</body>
-</html>
+    <form class = "middle" action = "/fw2015/<%=product.id%>/sell" method = "post">
+      <p>Enter the amount<p>
+        <p><input type = "number" name = "quantity" value = "AMOUNT?"><p>
+          <p><input id = "button" type = "submit" value = "SELL">
+          </p>
+        </form>
+      </p>
+    </div>
+    <%end%>
+  </body>
+  </html>
