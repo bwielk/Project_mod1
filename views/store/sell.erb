@@ -6,8 +6,8 @@
 </head>
 <body>
   <div class = "container">
-    <p>You have sold <%=params[:quantity]%> items </p>
-    <p> TOTAL: £<%=params[:quantity].to_i * @product.price%></p>
+    <p><%=@product.sell(params[:quantity])%></p>
+    <p>TRANSACTION VALUE: £<%=params[:quantity].to_i * @product.price%></p>
   </div>
 </body>
 </html>

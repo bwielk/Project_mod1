@@ -1,13 +1,6 @@
-
 .container {
   margin: auto;
-  text-align: center;
   padding-top: 15%;
-}
-
-.container p {
-  color: white;
-  font-size: 210%;
 }
 
 .container img {
@@ -17,4 +10,21 @@
 
 .container img:hover {
   box-shadow: 0px 1px 0px 5px rgba(105,98,105,1);
+}
+
+@media only screen and (max-width: 414px){
+  .container img {
+    max-width: 414px;
+    width:100%;
+    margin-top: -7%;
+  }
+}
+
+@media only screen and (max-width: 375px){
+
+  .container img {
+    max-width: 375px;
+    width:100%;
+    margin-top: -7%;
+  }
 }

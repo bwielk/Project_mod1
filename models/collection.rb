@@ -72,9 +72,4 @@ class Collection
 #     result = SqlRunner.run(sql)
 #     return result.map {|element| Product.new(element)}
 # end
-
-
-#REFACTORING METHODS#
-
-
 end

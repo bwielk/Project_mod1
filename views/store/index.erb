@@ -2,11 +2,10 @@
 <html>
 <head>
   <link rel="stylesheet" type="text/css" href="/index.css">
-  <link rel="stylesheet" type="text/css" href="/new_collection.css">
   <title>Inventory</title>
 </head>
 <body>
-  <form action = '/fw2015/collection_id/season' method = "get">
+  <form action = '/store/collection_id/season' method = "get">
     <label class = "dropdown"> <p>Choose a collection:</p>
       <select name = "collection_id">
         <%for collection in @collections%> 
@@ -16,16 +15,16 @@
     </label>
     <p><input type = "submit" value = "GO"></p>
   </form>
-  <form class = "form" action = '/fw2015' method = "post">
+  <form class = "form" action = '/store' method = "post">
     <label>
       <div>
-        <p>Create a new collection</p>
-        <p><input id = "input_bar" type = "text" name = "name">Name</input></p>
+        <p>Name a new collection:</p>
+        <p><input id = "input_bar" type = "text" name = "name"> </input></p>
         <p><input type = "submit" value = "CREATE"><p>
       </div>
     </label>
   </form>
- <form action = '/fw2015/id/delete' method = "post">
+ <form action = '/store/id/delete' method = "post">
      <label class = "dropdown"> <p>Delete a collection:</p>
        <select name = "id">
          <%for collection in @collections%> 

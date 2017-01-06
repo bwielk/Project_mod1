@@ -13,12 +13,12 @@
    <p> Stock: <%=product.stock_level%>(<%=product.stock%>)</p>
    <img class = "img" src ="<%=product.url%>" alt = "Image"/>
    <div class = "button">
-    <p><a href= "/fw2015/<%=product.id%>/season">SHOW DETAILS</a></p>
+    <p><a href= "/store/<%=product.id%>/season">SHOW DETAILS</a></p>
   </div>
 </div>
 <div class = "sell">
   <p>
-    <form class = "middle" action = "/fw2015/<%=product.id%>/sell" method = "post">
+    <form class = "middle" action = "/store/<%=product.id%>/sell" method = "post">
       <p>Enter the amount<p>
         <p><input type = "number" name = "quantity" value = "AMOUNT?"><p>
           <p><input id = "button" type = "submit" value = "SELL">

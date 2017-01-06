@@ -94,6 +94,8 @@ class Product
       return "MEDIUM"
     elsif @stock >= 20
       return "HIGH"
+    elsif @stock == 0
+      return "OUT OF STOCK. ORDER MORE"
     end
   end
 
@@ -119,11 +121,18 @@ class Product
   # end
   
   def sell(number)
-    if @stock >=1 
+    if @stock >=1 && number.to_i <= @stock
       new_stock = @stock - number.to_i
       update_stock(new_stock.to_i)
-    else 
-      return "ORDER MORE!"
+        if number.to_i == 1
+      return "You have sold 1 item"
+        elsif number.to_i >1
+      return "You have sold #{number} items"
+        end
+    elsif number.to_i > @stock
+      return "NOT ENOUGH PIECES IN STOCK. ORDER MORE! NO DEAL!"
+    elsif number.to_i == 0
+      return "OUT OF STOCK! NO DEAL!"
     end
   end
 
@@ -138,7 +147,4 @@ class Product
     result = SqlRunner.run(sql)
     return result[0]['name']
   end
-
-
-#REFACTORING METHODS
 end

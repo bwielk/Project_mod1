@@ -1,77 +1,90 @@
 require('sinatra')
 require('sinatra/contrib/all')
-require('pry')
-require_relative('../models/collection')
 require_relative('../models/product')
+require_relative('../models/collection')
 require('pry')
+
 # INDEX
-get '/fw2015' do 
+get '/store' do 
   @products = Product.all
   @collections = Collection.all
-  erb(:"/fw2015/index")
+  erb(:"/store/index")
 end
+
+#############--COLLECTIONS--################
+
+
 #SHOW COLLECTIONS BY SEASONS 
-get '/fw2015/collection_id/season' do
+get '/store/collection_id/season' do
   @collection = Collection.find(params[:collection_id])
-  erb(:"/fw2015/season")
+  erb(:"/store/season")
 end
 
-#NEW PRODUCT FORM
-get '/fw2015/new' do
-  @collections = Collection.all
-  erb(:"/fw2015/new")
-end
-
-#NEW COLLECTION COLLECTION CREATED
-post '/fw2015' do
+#CREATE A NEW COLLECTION
+post '/store' do
   @collection_new = Collection.new(params)
   @collection_new.add
-  erb(:"/fw2015/create_new_col")
+  erb(:"/store/create_new_col")
 end
-#DELETE A COLLECTION
-post '/fw2015/id/delete' do
+
+#DESTROY A COLLECTION
+post '/store/id/delete' do
   Collection.delete(params[:id])
-  redirect to('/fw2015')
+  redirect to('/store')
 end
+
+##############--PRODUCT--###############
+
+#NEW PRODUCT FORM
+get '/store/new' do
+  @collections = Collection.all
+  erb(:"/store/new")
+end
+
 #NEW PRODUCT CREATED
-post '/fw2015/new_product' do 
+post '/store/new_product' do 
   @product = Product.new(params)
   # if params.empty?
   #   redirect to('/fw2015/error') 
   # else
   @product.add()
   # end
-  erb(:"/fw2015/create")
+  erb(:"/store/create")
   # erb(:"/fw2015/error")
 end
 
 #SHOW PRODUCT
-get '/fw2015/:id/season' do
+get '/store/:id/season' do
   @product = Product.find(params[:id])
-  erb(:"/fw2015/show")
+  erb(:"/store/show")
 end
+
 #EDIT PRODUCT FORM
-get '/fw2015/:id/edit' do
+get '/store/:id/edit' do
   @collections = Collection.all
   @product = Product.find(params[:id])
-  erb(:"/fw2015/edit")
+  erb(:"/store/edit")
 end
 
 #UPDATED PRODUCT
-post '/fw2015/:id' do 
+post '/store/:id' do 
   @product = Product.update(params)
-  redirect to('/fw2015')
+  redirect to('/store')
 end
 
-# #SELL PRODUCT
-post '/fw2015/:id/sell' do
+#SELL PRODUCT
+post '/store/:id/sell' do
   @product = Product.find(params[:id])
   @product.sell(params[:quantity])
-  erb(:"/fw2015/sell")
+  erb(:"/store/sell")
 end
 
 #DESTROY PRODUCT
-post '/fw2015/:id/delete' do
+post '/store/:id/delete' do
   Product.delete(params[:id])
-  redirect to('/fw2015')
+  redirect to('/store')
 end
+
+####################--COLLECTION--######################
+
+

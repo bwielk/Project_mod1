@@ -1,9 +1,5 @@
 body {
   background-image: url(https://mir-s3-cdn-cf.behance.net/project_modules/disp/24933d34338995.56ccfd2102a0a.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
-  min-width: 500px;
-  min-height: 600px;
 }
 
 .form {
@@ -54,4 +50,13 @@ body {
 .button:hover {
   background-color: white;
   color: black;
+}
+
+@media only screen and (max-width: 375px){
+  .form {
+    width: 260px;
+    background-color: black;
+    margin: 5% 15% 0% 15% ;
+    padding: 1%;
+  }
 }
