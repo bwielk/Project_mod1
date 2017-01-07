@@ -5,7 +5,7 @@
   <title>Inventory</title>
 </head>
 <body>
-  <form action = '/store/collection_id/season' method = "get">
+  <form action = '/collection/collection_id/season' method = "get">
     <label class = "dropdown"> <p>Choose a collection:</p>
       <select name = "collection_id">
         <%for collection in @collections%> 
@@ -15,7 +15,7 @@
     </label>
     <p><input type = "submit" value = "GO"></p>
   </form>
-  <form class = "form" action = '/store' method = "post">
+  <form class = "form" action = '/collection' method = "post">
     <label>
       <div>
         <p>Name a new collection:</p>
@@ -24,7 +24,7 @@
       </div>
     </label>
   </form>
- <form action = '/store/id/delete' method = "post">
+ <form action = '/collection/id/delete' method = "post">
      <label class = "dropdown"> <p>Delete a collection:</p>
        <select name = "id">
          <%for collection in @collections%> 

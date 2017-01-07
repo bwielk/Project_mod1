@@ -11,29 +11,8 @@ get '/store' do
   erb(:"/store/index")
 end
 
-#############--COLLECTIONS--################
 
-
-#SHOW COLLECTIONS BY SEASONS 
-get '/store/collection_id/season' do
-  @collection = Collection.find(params[:collection_id])
-  erb(:"/store/season")
-end
-
-#CREATE A NEW COLLECTION
-post '/store' do
-  @collection_new = Collection.new(params)
-  @collection_new.add
-  erb(:"/store/create_new_col")
-end
-
-#DESTROY A COLLECTION
-post '/store/id/delete' do
-  Collection.delete(params[:id])
-  redirect to('/store')
-end
-
-##############--PRODUCT--###############
+##############--PRODUCT--#########################################
 
 #NEW PRODUCT FORM
 get '/store/new' do
@@ -85,6 +64,6 @@ post '/store/:id/delete' do
   redirect to('/store')
 end
 
-####################--COLLECTION--######################
+##################################################################
 
 
